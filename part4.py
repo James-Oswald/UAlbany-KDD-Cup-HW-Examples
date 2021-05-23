@@ -22,7 +22,7 @@ model = keras.Sequential([
     Dense(30, "sigmoid"), 
     Dense(10, "sigmoid")
 ])
-model.compile(loss="MSE", optimizer="SGD", metrics=["accuracy"])
+model.compile(metrics=["accuracy"])
 
 #model training with a custom training loop
 optimizer = keras.optimizers.SGD()
