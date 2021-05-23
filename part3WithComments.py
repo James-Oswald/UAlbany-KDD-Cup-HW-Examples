@@ -90,10 +90,15 @@ model.fit(
 
 #finally we evaluate the model on data it has never seen before, this is the true test 
 #to make sure it hasn't just memorized the training data (aka overfitting). 
-score = model.evaluate(
+testingScore = model.evaluate(
     x=flatTestingImages,        #see above
     y=categoricalTestingLabels  #see above
 )
+
+#testingScore contains [TestingLoss, TestingAccuracy]
+#this is determined by when we specfied metrics in model.compile,
+#loss is always in postion 0 by default followed in order by what we specify in metrics.
+print("Testing Accuracy: %" + str(100*testingScore[1]))
 
 #if we run this file we should see ~80% training and testing accuracy.
 
