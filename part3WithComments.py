@@ -84,7 +84,7 @@ model.compile(
 model.fit(
     x=flatTrainingImages,          #The network inputs: 28 by 28 images flattened to 784 by 1
     y=categoricalTrainingLabels,   #The expected network outputs: catagorial labels represnting numbers
-    batch_size=30,                 #The batch size, amount of samples to look at before updating the weights & biases
+    batch_size=32,                 #The batch size, amount of samples to look at before updating the weights & biases
     epochs=10                      #Number of times to pass through all training data.
 )
 

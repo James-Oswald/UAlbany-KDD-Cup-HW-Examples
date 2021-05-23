@@ -13,9 +13,15 @@ categoricalTestingLabels = keras.utils.to_categorical(testingLabels, 10)
 flatTrainingImages = tf.reshape(trainingImages, shape=[-1, 784])
 flatTestingImages = tf.reshape(testingImages, shape=[-1, 784])
 
-#Model Creation, Training, & Testing
-model = keras.Sequential([Input(784), Dense(30, "sigmoid"), Dense(10, "sigmoid")])
+#Model Creation
+model = keras.Sequential([
+    Input(784), 
+    Dense(30, "sigmoid"), 
+    Dense(10, "sigmoid")
+])
 model.compile(loss="MSE", optimizer="SGD", metrics=["accuracy"])
+
+#model training and testing 
 model.fit(flatTrainingImages, categoricalTrainingLabels, 30, 10)
 score = model.evaluate(flatTestingImages, categoricalTestingLabels)
 print("Testing Accuracy: %" + str(100*score[1]))
